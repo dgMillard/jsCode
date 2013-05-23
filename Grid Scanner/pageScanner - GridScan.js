@@ -40,8 +40,7 @@ function componentScannerLink(url) { //Pull in the validator after jQuery loads
 			done = true;
 		}
 	};
-	document.body.appendChild(script); // Add the new windowComponent
-	jsonp("https://raw.github.com/dgMillard/jsCode/master/Grid Scanner/jsonRules.js"); // Add the json, calls componentValidator.run
+	document.body.appendChild(script); // Add the new windowComponent. Calls jsonp
 }
 window.componentValidator = {
 	run:function(jsonData){
