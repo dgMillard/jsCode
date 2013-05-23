@@ -1,6 +1,4 @@
 window.componentValidator.validate = function(component){
-	if(component == "test")
-		alert("Valid");
 	this.rules = window.componentValidator.rules;
 	var matchFound = new Array(this.rules.ruleSet.length);// Create an array to track if each rule is run
 	for(var r=0;r<this.rules.ruleSet.length;r++) // Iterate through each rule...
@@ -70,5 +68,7 @@ window.componentValidator.validate = function(component){
 			}
 		}); // End the for each target function
 	}// End ruleset iteration
+	window.componentValidator.results.push("Fatal: <font color=\"red\">" + component.className + " did not match a rule for the page.<br><br></font>"); // Log the success!
+
 	return false; // If you got to here, the component wasn't a rule
 };
