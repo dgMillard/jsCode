@@ -1,4 +1,4 @@
-window.componentValidator.validate = function(component){
+window.componentValidator.validate = function(component, results){
 	this.rules = window.componentValidator.rules;
 	var matchFound = new Array(this.rules.ruleSet.length);// Create an array to track if each rule is run
 	for(var r=0;r<this.rules.ruleSet.length;r++) // Iterate through each rule...
@@ -42,7 +42,7 @@ window.componentValidator.validate = function(component){
 					if(this.scanned != true) //If one has not been successfully evaluated...
 					{
 						complete = false; // Fail the rule for this target.
-					window.componentValidator.results.push("<font color=\"red\">Excess element " +this.className + " was found in " + rules.ruleSet[r].target + ".<br></font>"); // Log the failure.
+					results.push("<font color=\"red\">Excess element " +this.className + " was found in " + rules.ruleSet[r].target + ".<br></font>"); // Log the failure.
 					}
 				}); // End strict for loop
 			}// End strict behavior check
@@ -51,24 +51,24 @@ window.componentValidator.validate = function(component){
 				if(tempCriteria[i] != true) // If the criteria has not been replaced with true...
 				{
 					complete = false; // Fail the rule...
-					window.componentValidator.results.push("<font color=\"red\">Field " +tempCriteria[i] + " was not found in " + rules.ruleSet[r].target + ".<br></font>"); // Log the missing element
+					results.push("<font color=\"red\">Field " +tempCriteria[i] + " was not found in " + rules.ruleSet[r].target + ".<br></font>"); // Log the missing element
 				}
 			}// End criteria completion for loop
 			if(complete == true) // If completion is still true, then it is valid
 			{				
 				this.style.border = "3px solid green"; // Create a green border around the div/element
-				window.componentValidator.results.push("Success: <font color=\"green\">" + rules.ruleSet[r].title + " validated successfully.<br><br></font>"); // Log the success!
+				results.push("Success: <font color=\"green\">" + rules.ruleSet[r].title + " validated successfully.<br><br></font>"); // Log the success!
 				return true;
 			}
 			else
 			{
 				this.style.border = "3px solid red"; // Create a red border around the div/element
-				window.componentValidator.results.push("Fatal: <font color=\"red\">" + rules.ruleSet[r].title + " failed to validate.<br><br></font>"); // Log the failed rule.
+				results.push("Fatal: <font color=\"red\">" + rules.ruleSet[r].title + " failed to validate.<br><br></font>"); // Log the failed rule.
 				return false;
 			}
 		}); // End the for each target function
 	}// End ruleset iteration
-	window.componentValidator.results.push("Fatal: <font color=\"red\">" + component.className + " did not match a rule for the page.<br><br></font>"); // Log the success!
+	results.push("Fatal: <font color=\"red\">" + component.className + " did not match a rule for the page.<br><br></font>"); // Log the success!
 
 	return false; // If you got to here, the component wasn't a rule
 };
