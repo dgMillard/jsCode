@@ -1,9 +1,9 @@
 window.componentValidator.validate = function(component, jsonrules, results){
-	alert(component.className);
 	var rules = jsonrules;
 	var matchFound = new Array(this.rules.ruleSet.length);// Create an array to track if each rule is run
 	for(var r=0;r<rules.ruleSet.length;r++) // Iterate through each rule...
 	{
+		alert("Does " + component.className + " contain " + rules.ruleSet[r].target"?");
 		//alert(rules.ruleSet[r].target);
 		matchFound[r] = false; // Var to confirm this rule was ever run
 		if($(component).hasClass(rules.ruleSet[r].target)) //If the rule lines up
