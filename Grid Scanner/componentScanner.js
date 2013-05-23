@@ -1,6 +1,6 @@
 window.componentValidator.validate = function(component, jsonData){
 	this.rules = jsonData;
-	var results = new Array("Component Validator output for scan at " + time.toTimeString() + ".<br><br>");
+	var results = new Array();
 	var matchFound = new Array(this.rules.ruleSet.length);// Create an array to track if each rule is run
 	for(var r=0;r<this.rules.ruleSet.length;r++) // Iterate through each rule...
 	{
@@ -58,12 +58,12 @@ window.componentValidator.validate = function(component, jsonData){
 			if(complete == true) // If completion is still true, then it is valid
 			{				
 				this.style.border = "3px solid green"; // Create a green border around the div/element
-				results.push("<font color=\"green\">" + rules.ruleSet[r].title + " validated successfully.<br><br></font>"); // Log the success!
+				results.push("Success: <font color=\"green\">" + rules.ruleSet[r].title + " validated successfully.<br><br></font>"); // Log the success!
 			}
 			else
 			{
 				this.style.border = "3px solid red"; // Create a red border around the div/element
-				results.push("<font color=\"red\">" + rules.ruleSet[r].title + " failed to validate.<br><br></font>"); // Log the failed rule.
+				results.push("Fatal: <font color=\"red\">" + rules.ruleSet[r].title + " failed to validate.<br><br></font>"); // Log the failed rule.
 			}
 		}); // End the for each target function
 	}// End ruleset iteration
@@ -71,7 +71,7 @@ window.componentValidator.validate = function(component, jsonData){
 	{
 		if(matchFound[i] == false) // If it was unable to find a suitable target...
 		{
-			results.push("No targets of class: " + this.rules.ruleSet[i].target + " were found on this page.<br>"); // Log that it was not present
+			results.push("Fatal: No targets of class: " + this.rules.ruleSet[i].target + " were found on this page.<br>"); // Log that it was not present
 		}
 	}
 	return results;
