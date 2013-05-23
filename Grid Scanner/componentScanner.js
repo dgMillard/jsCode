@@ -8,7 +8,9 @@ window.componentValidator.validate = function(component, jsonrules, results){
 			
 		//$(rules.ruleSet[r].target, $(component)).each(function(index) //Search for the target
 		//$(component).find(rules.ruleSet[r].target).each(function(index)//Search for the target
-		if($(component).hasClass(rules.ruleSet[r].className))
+		//alert(component.className);
+		//alert()
+		if($(component).hasClass(rules.ruleSet[r].target))
 		{
 			alert("Found something");
 			var $tempDiv = $(this); // Create a temp div so we aren't changing the actual page
