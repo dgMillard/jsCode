@@ -12,7 +12,6 @@ window.componentValidator.validate = function(component, jsonrules, results){
 		//alert()
 		if($(component).hasClass(rules.ruleSet[r].target))
 		{
-			alert("Found something");
 			var $tempDiv = $(this); // Create a temp div so we aren't changing the actual page
 			$tempDiv.find('*').each(function(index) // This resets the scanned property to enable the script to run multiple times
 			{this.scanned = false;}); // Adds and falsifies a bool to each element				
@@ -34,6 +33,7 @@ window.componentValidator.validate = function(component, jsonrules, results){
 					{
 						if(this.scanned != true && tempCriteria[i] != true) // Confirm we have not already eval'd the element, and comfirm we are not running 1 criteria on multiple elements
 						{
+							alert("Found something");
 							tempCriteria[i] = true; // An instance was found, good!
 							this.scanned = true; // Property to tell script the element was eval'd
 						}
