@@ -29,7 +29,8 @@ window.componentValidator.validate = function(component, jsonrules, results){
 				}
 				else if (typeof rules.ruleSet[r].criteriaList[i] == 'string' || rules.ruleSet[r].criteriaList[i] instanceof String) // If it isn't a function, it should be a selector string
 				{
-					$(rules.ruleSet[r].criteriaList[i],$tempDiv).each(function(index) // Filter out the DOM objects that match our selector
+					//$(rules.ruleSet[r].criteriaList[i],$tempDiv).each(function(index) // Filter out the DOM objects that match our selector
+					$tempDiv.find(rules.ruleSet[r].criteriaList[i]).each(function(index)
 					{
 						if(this.scanned != true && tempCriteria[i] != true) // Confirm we have not already eval'd the element, and comfirm we are not running 1 criteria on multiple elements
 						{
