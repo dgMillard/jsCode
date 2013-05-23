@@ -29,6 +29,7 @@ window.componentValidator.validate = function(component, jsonrules, results){
 				}
 				else if (typeof rules.ruleSet[r].criteriaList[i] == 'string' || rules.ruleSet[r].criteriaList[i] instanceof String) // If it isn't a function, it should be a selector string
 				{
+					alert("beep");
 					//$(rules.ruleSet[r].criteriaList[i],$tempDiv).each(function(index) // Filter out the DOM objects that match our selector
 					$tempDiv.find(rules.ruleSet[r].criteriaList[i]).each(function(index)
 					{
