@@ -36,7 +36,7 @@ componentValidator.run(
       },
       {
          "behavior" : "strict",
-         "title":"Rule for .c11-pilot ",
+         "title":"Rule for .c11-pilot",
          "target":".c11-pilot ",
          "criteriaList":[
                "h2",
