@@ -34,12 +34,12 @@ componentValidator.run(
                "p"
          ]
       },
-            {
+      {
          "behavior" : "strict",
-         "title":"Rule for .c00-pilot",
-         "target":".c00-pilot",
+         "title":"Rule for .c11-pilot ",
+         "target":".c11-pilot ",
          "criteriaList":[
-               "h1",
+               "h2",
                "p"
          ]
       },
