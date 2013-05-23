@@ -46,10 +46,6 @@ window.componentValidator = {
 	run:function(jsonData){
 		window.componentValidator.rules = jsonData;
 		var time = new Date();
-		for(var i = 0; i<window.componentValidator.rules.ruleSet.length; i++)
-		{
-			alert(i + " " +window.componentValidator.rules.ruleSet[i].target);
-		}
 		window.componentValidator.results = new Array("Grid Scanner output for scan at " + time.toTimeString() + ".<br>");
 		var gridFound = false;
 		$(".gdb").each(function(index){//Find jQuery instance of each grid
