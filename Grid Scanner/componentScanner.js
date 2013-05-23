@@ -70,7 +70,7 @@ window.componentValidator.validate = function(component, jsonrules, results){
 				results.push("Fatal: <font color=\"red\">" + rules.ruleSet[r].title + " failed to validate.<br><br></font>"); // Log the failed rule.
 				return false;
 			}
-		}); // End the for each target function
+		} // End the for each target function
 	}// End ruleset iteration
 	results.push("Fatal: <font color=\"red\">" + component.className + " did not match a rule for the page.<br><br></font>"); // Log the success!
 
