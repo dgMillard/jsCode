@@ -102,6 +102,7 @@ window.componentValidator = {
 					}// End grandChild iterator
 				}// End region classname if
 			}// end region iterator
+			window.componentValidator.results.push("<br>__<br><br>")
 		}); // End grid forEach
 		if(!gridFound)
 			window.componentValidator.results.push("No grids found on page.<br>");
