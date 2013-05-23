@@ -108,12 +108,12 @@ window.componentValidator = {
 
 		window.componentValidator.results.push("<br>_____________<br><br>")
 
-		this.display(results);
+		this.display();
 	},
-	display:function(results){
+	display:function(){
 		for(var i =0; i<window.componentValidator.results.length; i++)
 		{
-			$("body").append(results[i]);
+			$("body").append(window.componentValidator.results[i]);
 		}
 	}
 }; //End object definition
