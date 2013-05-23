@@ -90,7 +90,7 @@ window.componentValidator = {
 						// Now check if its a properly classed component
 						else if($(grandChildren[g]).hasClass("mlb-pilot") || $(grandChildren[g]).hasClass("clb"))
 						{
-							if(!window.componentValidator.validate(grandChildren[g], window.componentValidator.results))
+							if(!window.componentValidator.validate(grandChildren[g], window.componentValidator.rules, window.componentValidator.results))
 							{
 								isBlob = true;
 							}	
