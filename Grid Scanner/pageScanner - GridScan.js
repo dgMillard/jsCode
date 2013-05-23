@@ -45,7 +45,7 @@ function componentScannerLink(url) { //Pull in the validator after jQuery loads
 }
 window.componentValidator = {
 	run:function(jsonData){
-		this.rules = jsonData;
+		window.componentValidator.rules = jsonData;
 		var time = new Date();
 		window.componentValidator.results = new Array("Grid Scanner output for scan at " + time.toTimeString() + ".<br>");
 		var gridFound = false;
@@ -53,7 +53,7 @@ window.componentValidator = {
 		{this.scanned = false;});
 		$(".gdb").each(function(index){//Find jQuery instance of each grid
 			var indent = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp";
-			var rules = componentValidator.rules
+			var rules = window.componentValidator.rules;
 			gridFound = true;
 			var parent = new Object();
 			parent.className = this.parentNode.className;
@@ -89,38 +89,19 @@ window.componentValidator = {
 						// Now check if its a properly classed component
 						else if($(grandChildren[g]).hasClass("mlb-pilot") || $(grandChildren[g]).hasClass("clb"))
 						{
-							//Validate here
+							if(!window.componentValidator.validate(grandChildren[g]))
+							{
+								isBlob = true;
+							}	
 						}
 						else
 						{
 							window.componentValidator.results.push("Fatal: Unaccounted child (" + grandChildren.className + ") located in: " + children[c].className);
 							isBlob = true;
 						}
-					}
-
-
-					else if(children[c].childElementCount > 1)//Multiple children
-					{
-						var grandChildren = children[c].children;
-						window.componentValidator.results.push("Fatal: " + children[c].className + " contains multiple elements.<br>");
-						for( var i=0; i < children[c].childElementCount;i++)
-						{
-							results.push(indent + "Class: " + grandChildren[i].className + indent);
-							if(!grandChildren[i].id == "")
-								window.componentValidator.results.push("ID: " + grandChildren[i].id+" <br>");
-							else
-								window.componentValidator.results.push("<br>");
-						}
-						isBlob = true;	
-					}
-					else //Rule Parse
-					{
-						window.componentValidator.validate();
-					}
-				}
-			}
-					
-
+					}// End grandChild iterator
+				}// End region classname if
+			}// end region iterator
 		}); // End grid forEach
 		if(!gridFound)
 			results.push("No grids found on page.<br>");
