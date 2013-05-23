@@ -122,6 +122,18 @@ window.componentValidator = {
 		{
 			$("body").append(window.componentValidator.results[i]);
 		}
+	},
+	jsonp:function(url){
+		var done = false;
+		var head = document.head;
+		var script = document.createElement("script");
+		script.setAttribute("src", url);
+	 	script.onload = script.onreadystatechange = function(){
+			if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) {
+				done = true;
+			}
+		};
+		document.body.appendChild(script); // Run the json file. Links callback to componentValidator.run().
 	}
 }; //End object definition
 })(); // End global anonymous function
