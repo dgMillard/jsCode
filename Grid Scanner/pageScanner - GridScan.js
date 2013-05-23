@@ -47,7 +47,7 @@ window.componentValidator = {
 	run:function(jsonData){
 		this.rules = jsonData;
 		var time = new Date();
-		var results = new Array("Grid Scanner output for scan at " + time.toTimeString() + ".<br>");
+		window.componentValidator.results = new Array("Grid Scanner output for scan at " + time.toTimeString() + ".<br>");
 		var gridFound = false;
 		$('*').each(function(index) // This resets the scanned property to enable the script to run multiple times
 		{this.scanned = false;});
@@ -58,7 +58,7 @@ window.componentValidator = {
 			var parent = new Object();
 			parent.className = this.parentNode.className;
 			parent.idName = this.parentNode.id;
-			results.push("<br>Grid: " + $(this).attr('class') + "<br>Parent class: " + parent.className+ "<br>Parent id: " + parent.idName+ "<br><br>");// Report on grid glasses and parent
+			window.componentValidator.results.push("<br>Grid: " + $(this).attr('class') + "<br>Parent class: " + parent.className+ "<br>Parent id: " + parent.idName+ "<br><br>");// Report on grid glasses and parent
 			var children = this.children;
 			var isBlob = false;
 			for(var c = 0;c<this.childElementCount;c++)//Iterate through each child
@@ -66,93 +66,60 @@ window.componentValidator = {
 				//Ensure we only check regions...
 				if(children[c].className == "gd-left" || children[c].className == "gd-mid" || children[c].className == "gd-right")
 				{
+					var grandChildren = children[c].children;
+					//window.componentValidator.results.push("Warn: " + children[c].className + " contains multiple elements.<br>");
+					for( var g=0; g < children[c].childElementCount;g++)
+					{
+						//results.push(indent + "Class: " + grandChildren[i].className + indent);
+						//if(!grandChildren[i].id == "")
+						//	window.componentValidator.results.push("ID: " + grandChildren[i].id+" <br>");
+						//else
+						//	window.componentValidator.results.push("<br>");
+						// Check for grid contents
+						var containsGrid = false;
+						for(var g=0; g<children[c].childElementCount; i++)
+						{
+							if($(grandChildren[g]).hasClass('gdb'))
+								containsGrid = true;
+						}
+						if(containsGrid) //A child grid
+						{
+							window.componentValidator.results.push("Warn: " + children[c].className + "contains another grid.<br>");
+						}
+						// Now check if its a properly classed component
+						else if($(grandChildren[g]).hasClass("mlb-pilot") || $(grandChildren[g]).hasClass("clb"))
+						{
+							//Validate here
+						}
+						else
+						{
+							window.componentValidator.results.push("Fatal: Unaccounted child (" + grandChildren.className + ") located in: " + children[c].className);
+							isBlob = true;
+						}
+					}
 
-					//Check the region for...
-					var containsGrid = false;
-					for(var i=0; i<children[c].childElementCount; i++)
-					{
-						if($(children[c].children[i]).hasClass('gdb'))
-							containsGrid = true;
-					}
-					if(containsGrid) //A child grid
-					{
-						results.push("Warn: " + + children[c].className + "contains another grid.<br>");
-					}
+
 					else if(children[c].childElementCount > 1)//Multiple children
 					{
 						var grandChildren = children[c].children;
-						results.push("Fatal: " + children[c].className + " contains multiple elements.<br>");
+						window.componentValidator.results.push("Fatal: " + children[c].className + " contains multiple elements.<br>");
 						for( var i=0; i < children[c].childElementCount;i++)
 						{
 							results.push(indent + "Class: " + grandChildren[i].className + indent);
 							if(!grandChildren[i].id == "")
-								results.push("ID: " + grandChildren[i].id+" <br>");
+								window.componentValidator.results.push("ID: " + grandChildren[i].id+" <br>");
 							else
-								results.push("<br>");
+								window.componentValidator.results.push("<br>");
 						}
 						isBlob = true;	
 					}
 					else //Rule Parse
 					{
-						var childToCheck = children[c].firstElementChild;
-						var componentConfirmed = false
-						for(var r=0; r<rules.ruleSet.length; r++)//Check if any of the rules have our element as their target
-						{
-							if($(childToCheck).hasClass(rules.ruleSet[r].className))
-							{//If the target lines up
-								var rule = rules.ruleSet[r];
-								var elementMatch = new Array(rule.criteria.length);
-								for(var z=0;z<elementMatch.length;z++)
-								{elementMatch[z] = false;}
-								for(var q=0; q<rule.criteria.length;q++)
-								{//Step through each criteria
-								
-									if (typeof rule.criteria[q] === 'function') // First, check if its a function
-									{	if(rule.criteria[q](this)){
-											elementMatch[q] = true;}
-									}
-									else if (typeof rule.criteria[q] == 'string' || rule.criteria[q] instanceof String) // If it isn't a function, it should be a selector string
-									{//If the criteria is a selector
-										var scope = $(children[c]);
-										$(rule.criteria[q],scope).each(function(index) // Filter out the DOM objects that match our selector
-										{
-											elementMatch[q] = true;
-										}); // End function
-									}
-								}
-								var boolHolder = true;
-								for(var z=0;z<elementMatch.length;z++)
-								{
-									if(elementMatch[z] == false)
-									boolHolder = false;
-								}
-								if(boolHolder)
-								{
-									results.push($(children[c]).attr('class') + " validated. <br>");
-									componentConfirmed = true;
-								}
-							}
-						}
-						if(!componentConfirmed)
-						{
-							results.push("Fatal: Unidentified Object: &quot"+$(childToCheck).attr('class')+"&quot in " + children[c].className+".<br>");
-							isBlob = true;
-						}
+						window.componentValidator.validate();
 					}
 				}
-				else{
-					results.push("Note: Extra child element found in the grid.<br>");
-					results.push(indent + "Child Class: " + children[c].className + "<br>");
-					results.push(indent + "Child ID: "+ children[c].id + "<br>");
-					results.push(indent + "Child Type: "+ children[c].nodeName + "<br>");
-				}
 			}
-			
-			if(isBlob)
-				results.push("Grid is a blob.<br>");
-			else
-				results.push("Grid validated successfully.<br>");
-			results.push("____<br>");
+					
 
 		}); // End grid forEach
 		if(!gridFound)
