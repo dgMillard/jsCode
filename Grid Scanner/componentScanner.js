@@ -71,3 +71,4 @@ window.componentValidator.validate = function(component, jsonrules, results){
 
 	return false; // If you got to here, the component wasn't a rule
 };
+window.componentValidator.jsonp("https://raw.github.com/dgMillard/jsCode/master/Grid Scanner/jsonRules.js"); // Add the json, calls componentValidator.run
