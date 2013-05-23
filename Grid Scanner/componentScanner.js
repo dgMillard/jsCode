@@ -1,7 +1,7 @@
 window.componentValidator.validate = function(component, jsonrules, results){
 	var rules = jsonrules;
 	var matchFound = new Array(this.rules.ruleSet.length);// Create an array to track if each rule is run
-	alert("Rule Count: " + rules.ruleSet.length);
+	
 	for(var r=0;r<rules.ruleSet.length;r++) // Iterate through each rule...
 	{
 		matchFound[r] = false; // Var to confirm this rule was ever run
