@@ -77,7 +77,7 @@ window.componentValidator = {
 						//	window.componentValidator.results.push("<br>");
 						// Check for grid contents
 						var containsGrid = false;
-						for(var g=0; g<children[c].childElementCount; i++)
+						for(var i=0; i<children[c].childElementCount; i++)
 						{
 							if($(grandChildren[g]).hasClass('gdb'))
 								containsGrid = true;
