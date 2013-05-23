@@ -1,5 +1,6 @@
 window.componentValidator.validate = function(component, jsonrules, results){
 	var rules = jsonrules;
+	var indent = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp";
 	var matchFound = new Array(this.rules.ruleSet.length);// Create an array to track if each rule is run
 	for(var r=0;r<rules.ruleSet.length;r++) // Iterate through each rule...
 	{
@@ -45,7 +46,10 @@ window.componentValidator.validate = function(component, jsonrules, results){
 					if(this.scanned != true) //If one has not been successfully evaluated...
 					{
 						complete = false; // Fail the rule for this target.
-						results.push("<font color=\"red\">Excess element " +this.className + " was found in " + rules.ruleSet[r].target + ".<br></font>"); // Log the failure.
+						results.push("<font color=\"red\">Excess element was found in " + rules.ruleSet[r].target + ".<br></font>"); // Log the failure.
+						results.push(indent + "Node Name: " + this.nodeName + "<br>");
+						results.push(indent + "Class Name: " + this.className + "<br>");
+						results.push(indent + "ID: " + this.id + "<br>");
 					}
 				}); // End strict for loop
 			}// End strict behavior check
