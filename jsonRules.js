@@ -16,7 +16,7 @@ componentValidator.run(
          ]
       },
       {
-         "behavior" : "strict",
+         "behavior" : "loose",
          "title":"Rule for .c47-pilot",
          "target":".c47-pilot",
          "criteriaList":[
