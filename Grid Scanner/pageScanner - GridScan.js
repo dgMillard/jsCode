@@ -104,14 +104,14 @@ window.componentValidator = {
 			}// end region iterator
 		}); // End grid forEach
 		if(!gridFound)
-			results.push("No grids found on page.<br>");
+			window.componentValidator.results.push("No grids found on page.<br>");
 
-		results.push("<br>_____________<br><br>")
+		window.componentValidator.results.push("<br>_____________<br><br>")
 
 		this.display(results);
 	},
 	display:function(results){
-		for(var i =0; i<results.length; i++)
+		for(var i =0; i<window.componentValidator.results.length; i++)
 		{
 			$("body").append(results[i]);
 		}
