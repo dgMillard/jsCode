@@ -48,7 +48,7 @@ window.componentValidator = {
 		var time = new Date();
 		for(var i = 0; i<window.componentValidator.rules.ruleSet.length; i++)
 		{
-			alert(window.componentValidator.rules.ruleSet[i].target);
+			alert(window.componentValidator.rules.ruleSet[i].behavior);
 		}
 		window.componentValidator.results = new Array("Grid Scanner output for scan at " + time.toTimeString() + ".<br>");
 		var gridFound = false;
