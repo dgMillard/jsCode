@@ -21,7 +21,7 @@ window.componentValidator.validate = function(component, jsonrules, results){
 			{ // Might be unneccesary, need to check if you can set equate arrays
 				boolCriteria[i] = false;
 			}
-			for (var  i=0;i<tempCriteria.length;i++)// Time to eval each criteria
+			for (var  i=0;i<rules.ruleSet[r].criteriaList.length;i++)// Time to eval each criteria
 			{
 				if (typeof rules.ruleSet[r].criteriaList[i] === 'function') // First, check if its a function
 				{
