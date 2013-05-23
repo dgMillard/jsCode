@@ -1,5 +1,6 @@
-alert("Hi");
 window.componentValidator.validate = function(component){
+	if(component == "test")
+		alert("Valid");
 	this.rules = window.componentValidator.rules;
 	var matchFound = new Array(this.rules.ruleSet.length);// Create an array to track if each rule is run
 	for(var r=0;r<this.rules.ruleSet.length;r++) // Iterate through each rule...
