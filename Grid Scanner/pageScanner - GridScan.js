@@ -102,12 +102,16 @@ window.componentValidator = {
 					}// End grandChild iterator
 				}// End region classname if
 			}// end region iterator
-			window.componentValidator.results.push("<br>__<br><br>")
+			if(isBlob)
+				window.componentValidator.results.push("Grid is a blob.<br>");
+			else
+				window.componentValidator.results.push("Grid Evaluated Successfully<br>");
+			window.componentValidator.results.push("<br>__<br><br>");
 		}); // End grid forEach
 		if(!gridFound)
 			window.componentValidator.results.push("No grids found on page.<br>");
 
-		window.componentValidator.results.push("<br>_____________<br><br>")
+		window.componentValidator.results.push("<br>_____________<br><br>");
 
 		this.display();
 	},
