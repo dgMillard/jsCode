@@ -9,14 +9,14 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery < v) { // If the curr
 	script.onload = script.onreadystatechange = function(){
 		if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) {
 			done = true;
-			componentScannerLink();
+			componentScannerLink("https://raw.github.com/dgMillard/jsCode/master/Grid%20Scanner/componentScanner.js");
 		
 		}
 	};
 	document.getElementsByTagName("head")[0].appendChild(script);
 	}
 	else{
-		componentScannerLink();
+		componentScannerLink("https://raw.github.com/dgMillard/jsCode/master/Grid%20Scanner/componentScanner.js");
 	}
 function jsonp(url) { //Pull in the JSON after validator loads
 	var done = false;
