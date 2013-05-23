@@ -69,4 +69,4 @@ window.componentValidator.validate = function(component){
 		}); // End the for each target function
 	}// End ruleset iteration
 	return false; // If you got to here, the component wasn't a rule
-}
+};
