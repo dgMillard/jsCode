@@ -20,7 +20,7 @@ window.componentValidator.validate = function(component, jsonrules, results){
 			{
 				if (typeof rules.ruleSet[r].criteriaList[i] === 'function') // First, check if its a function
 				{
-					boolCriteria[i] = tempCriteria[i](this); // If it is, pass the function the DOM object 'target' and set our completion tracker to the returned value 
+					boolCriteria[i] = tempCriteria[i](component); // If it is, pass the function the DOM object 'target' and set our completion tracker to the returned value 
 				}
 				else if (typeof rules.ruleSet[r].criteriaList[i] == 'string' || rules.ruleSet[r].criteriaList[i] instanceof String) // If it isn't a function, it should be a selector string
 				{
@@ -29,7 +29,6 @@ window.componentValidator.validate = function(component, jsonrules, results){
 					{
 						if(this.scanned != true && boolCriteria[i] != true) // Confirm we have not already eval'd the element, and comfirm we are not running 1 criteria on multiple elements
 						{
-							alert("Found something");
 							boolCriteria[i] = true; // An instance was found, good!
 							this.scanned = true; // Property to tell script the element was eval'd
 						}
