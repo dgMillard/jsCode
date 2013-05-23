@@ -66,6 +66,7 @@ window.componentValidator = {
 				//Ensure we only check regions...
 				if(children[c].className == "gd-left" || children[c].className == "gd-mid" || children[c].className == "gd-right")
 				{
+					window.componentValidator.results.push("For region: " + children[c].className + "<br>");
 					var grandChildren = children[c].children;
 					//window.componentValidator.results.push("Warn: " + children[c].className + " contains multiple elements.<br>");
 					for( var g=0; g < children[c].childElementCount;g++)
