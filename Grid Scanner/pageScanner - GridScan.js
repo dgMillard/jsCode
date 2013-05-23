@@ -49,8 +49,6 @@ window.componentValidator = {
 		var time = new Date();
 		window.componentValidator.results = new Array("Grid Scanner output for scan at " + time.toTimeString() + ".<br>");
 		var gridFound = false;
-		$('*').each(function(index) // This resets the scanned property to enable the script to run multiple times
-		{this.scanned = false;});
 		$(".gdb").each(function(index){//Find jQuery instance of each grid
 			var indent = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp";
 			var rules = window.componentValidator.rules;
