@@ -6,7 +6,8 @@ window.componentValidator.validate = function(component, jsonrules, results){
 		//alert("Does " + component.className + " contain " + rules.ruleSet[r].target+"?");
 		//alert(rules.ruleSet[r].target);
 		matchFound[r] = false; // Var to confirm this rule was ever run
-		if($(component).hasClass(rules.ruleSet[r].target)) //If the rule lines up
+		//if($(component).hasClass(rules.ruleSet[r].target)) //If the rule lines up
+		if($(component).is(rules.ruleSet[r].target)) //If the rule lines up
 		{
 			var $tempDiv = $(component); // Create a temp div so we aren't changing the actual page
 			$tempDiv.find('*').each(function(index) // This resets the scanned property to enable the script to run multiple times
