@@ -31,12 +31,12 @@ window.componentValidator.validate = function(component, jsonrules, results){
 				{
 					$(tempCriteria[i],$tempDiv).each(function(index) // Filter out the DOM objects that match our selector
 					{
-						if(this.scanned != true && tempCriteria[i] != true) // Confirm we have not already eval'd the element, and comfirm we are not running 1 criteria on multiple elements
-						{
+						//if(this.scanned != true && tempCriteria[i] != true) // Confirm we have not already eval'd the element, and comfirm we are not running 1 criteria on multiple elements
+						//{
 							alert("Found something");
 							tempCriteria[i] = true; // An instance was found, good!
 							this.scanned = true; // Property to tell script the element was eval'd
-						}
+						//}
 					}); // End function
 				}// End string check if statement
 			}//End criteria iteration
