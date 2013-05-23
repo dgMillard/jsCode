@@ -5,14 +5,9 @@ window.componentValidator.validate = function(component, jsonrules, results){
 	{
 		//alert(rules.ruleSet[r].target);
 		matchFound[r] = false; // Var to confirm this rule was ever run
-			
-		//$(rules.ruleSet[r].target, $(component)).each(function(index) //Search for the target
-		//$(component).find(rules.ruleSet[r].target).each(function(index)//Search for the target
-		//alert(component.className);
-		//alert()
 		if($(component).hasClass(rules.ruleSet[r].target)) //If the rule lines up
 		{
-			var $tempDiv = $(this); // Create a temp div so we aren't changing the actual page
+			var $tempDiv = $(component); // Create a temp div so we aren't changing the actual page
 			$tempDiv.find('*').each(function(index) // This resets the scanned property to enable the script to run multiple times
 			{this.scanned = false;}); // Adds and falsifies a bool to each element				
 			matchFound[r] = true; // Tells the log we actually ran this rule
@@ -29,7 +24,6 @@ window.componentValidator.validate = function(component, jsonrules, results){
 				}
 				else if (typeof rules.ruleSet[r].criteriaList[i] == 'string' || rules.ruleSet[r].criteriaList[i] instanceof String) // If it isn't a function, it should be a selector string
 				{
-					alert("beep");
 					//$(rules.ruleSet[r].criteriaList[i],$tempDiv).each(function(index) // Filter out the DOM objects that match our selector
 					$tempDiv.find(rules.ruleSet[r].criteriaList[i]).each(function(index)
 					{
