@@ -94,7 +94,7 @@ window.componentValidator = {
 						}
 						else
 						{
-							window.componentValidator.results.push("Fatal: Unaccounted child (" + grandChildren[g].className + ") located in: " + children[c].className+"<br>");
+							window.componentValidator.results.push("Fatal: Unaccounted child (" + grandChildren[g].nodeName + ") located in: " + children[c].className+"<br>");
 							isBlob = true;
 						}
 					}// End grandChild iterator
