@@ -26,11 +26,21 @@ componentValidator.run(
          ]
       },
       {
-         "behavior" : "loose",
-         "title":"Rule for .c46-pilot",
-         "target":".c46-pilot",
+         "behavior" : "strict",
+         "title":"Rule for .c00-pilot",
+         "target":".c00-pilot",
          "criteriaList":[
-               "h2"
+               "h1",
+               "p"
+         ]
+      },
+            {
+         "behavior" : "strict",
+         "title":"Rule for .c00-pilot",
+         "target":".c00-pilot",
+         "criteriaList":[
+               "h1",
+               "p"
          ]
       },
       {
