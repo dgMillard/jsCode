@@ -10,33 +10,33 @@ window.componentValidator.validate = function(component, jsonrules, results){
 		//$(component).find(rules.ruleSet[r].target).each(function(index)//Search for the target
 		//alert(component.className);
 		//alert()
-		if($(component).hasClass(rules.ruleSet[r].target))
+		if($(component).hasClass(rules.ruleSet[r].target)) //If the rule lines up
 		{
 			var $tempDiv = $(this); // Create a temp div so we aren't changing the actual page
 			$tempDiv.find('*').each(function(index) // This resets the scanned property to enable the script to run multiple times
 			{this.scanned = false;}); // Adds and falsifies a bool to each element				
 			matchFound[r] = true; // Tells the log we actually ran this rule
-			var tempCriteria = new Array(rules.ruleSet[r].criteriaList.length); // Simplifies json query and allows us to alter elements 
+			var boolCriteria = new Array(rules.ruleSet[r].criteriaList.length); // Simplifies json query and allows us to alter elements 
 			for(var i=0;i<rules.ruleSet[r].criteriaList.length; i++)
 			{ // Might be unneccesary, need to check if you can set equate arrays
-				tempCriteria[i] = rules.ruleSet[r].criteriaList[i];
+				boolCriteria[i] = false;
 			}
 			for (var  i=0;i<tempCriteria.length;i++)// Time to eval each criteria
 			{
-				if (typeof tempCriteria[i] === 'function') // First, check if its a function
+				if (typeof rules.ruleSet[r].criteriaList[i] === 'function') // First, check if its a function
 				{
-					tempCriteria[i] = tempCriteria[i](this); // If it is, pass the function the DOM object 'target' and set our completion tracker to the returned value 
+					boolCriteria[i] = tempCriteria[i](this); // If it is, pass the function the DOM object 'target' and set our completion tracker to the returned value 
 				}
-				else if (typeof tempCriteria[i] == 'string' || tempCriteria[i] instanceof String) // If it isn't a function, it should be a selector string
+				else if (typeof rules.ruleSet[r].criteriaList[i] == 'string' || rules.ruleSet[r].criteriaList[i] instanceof String) // If it isn't a function, it should be a selector string
 				{
-					$(tempCriteria[i],$tempDiv).each(function(index) // Filter out the DOM objects that match our selector
+					$(rules.ruleSet[r].criteriaList[i],$tempDiv).each(function(index) // Filter out the DOM objects that match our selector
 					{
-						//if(this.scanned != true && tempCriteria[i] != true) // Confirm we have not already eval'd the element, and comfirm we are not running 1 criteria on multiple elements
-						//{
+						if(this.scanned != true && tempCriteria[i] != true) // Confirm we have not already eval'd the element, and comfirm we are not running 1 criteria on multiple elements
+						{
 							alert("Found something");
-							tempCriteria[i] = true; // An instance was found, good!
+							boolCriteria[i] = true; // An instance was found, good!
 							this.scanned = true; // Property to tell script the element was eval'd
-						//}
+						}
 					}); // End function
 				}// End string check if statement
 			}//End criteria iteration
@@ -48,16 +48,16 @@ window.componentValidator.validate = function(component, jsonrules, results){
 					if(this.scanned != true) //If one has not been successfully evaluated...
 					{
 						complete = false; // Fail the rule for this target.
-					results.push("<font color=\"red\">Excess element " +this.className + " was found in " + rules.ruleSet[r].target + ".<br></font>"); // Log the failure.
+						results.push("<font color=\"red\">Excess element " +this.className + " was found in " + rules.ruleSet[r].target + ".<br></font>"); // Log the failure.
 					}
 				}); // End strict for loop
 			}// End strict behavior check
-			for(var i=0;i<tempCriteria.length; i++) // Check if the class had all elements properly evaluated
+			for(var i=0;i<boolCriteria.length; i++) // Check if the class had all elements properly evaluated
 			{
-				if(tempCriteria[i] != true) // If the criteria has not been replaced with true...
+				if(boolCriteria[i] == false) // If the criteria is false
 				{
 					complete = false; // Fail the rule...
-					results.push("<font color=\"red\">Field " +tempCriteria[i] + " was not found in " + rules.ruleSet[r].target + ".<br></font>"); // Log the missing element
+					results.push("<font color=\"red\">Field " +rules.ruleSet[r].criteriaList[i] + " was not found in " + rules.ruleSet[r].target + ".<br></font>"); // Log the missing element
 				}
 			}// End criteria completion for loop
 			if(complete == true) // If completion is still true, then it is valid
