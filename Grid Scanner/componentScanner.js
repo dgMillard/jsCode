@@ -62,13 +62,13 @@ window.componentValidator.validate = function(component, jsonrules, results){
 			}// End criteria completion for loop
 			if(complete == true) // If completion is still true, then it is valid
 			{				
-				this.style.border = "3px solid green"; // Create a green border around the div/element
+				//this.style.border = "3px solid green"; // Create a green border around the div/element
 				results.push("Success: <font color=\"green\">" + rules.ruleSet[r].title + " validated successfully.<br><br></font>"); // Log the success!
 				return true;
 			}
 			else
 			{
-				this.style.border = "3px solid red"; // Create a red border around the div/element
+				//this.style.border = "3px solid red"; // Create a red border around the div/element
 				results.push("Fatal: <font color=\"red\">" + rules.ruleSet[r].title + " failed to validate.<br><br></font>"); // Log the failed rule.
 				return false;
 			}
