@@ -27,7 +27,7 @@ window.componentValidator.validate = function(component, jsonrules, results){
 					//$(rules.ruleSet[r].criteriaList[i],$tempDiv).each(function(index) // Filter out the DOM objects that match our selector
 					$tempDiv.find(rules.ruleSet[r].criteriaList[i]).each(function(index)
 					{
-						if(this.scanned != true && tempCriteria[i] != true) // Confirm we have not already eval'd the element, and comfirm we are not running 1 criteria on multiple elements
+						if(this.scanned != true && boolCriteria[i] != true) // Confirm we have not already eval'd the element, and comfirm we are not running 1 criteria on multiple elements
 						{
 							alert("Found something");
 							boolCriteria[i] = true; // An instance was found, good!
