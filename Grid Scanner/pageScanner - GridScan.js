@@ -46,6 +46,7 @@ function componentScannerLink(url) { //Pull in the validator after jQuery loads
 window.componentValidator = {
 	run:function(jsonData){
 		window.componentValidator.rules = jsonData;
+		window.componentValidator.validate("test");
 		var time = new Date();
 		window.componentValidator.results = new Array("Grid Scanner output for scan at " + time.toTimeString() + ".<br>");
 		var gridFound = false;
