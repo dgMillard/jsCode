@@ -7,7 +7,9 @@
  - the immediate children of the grid are regions (DONE)
  - for each region, look inside (DONE)
   - for each immediate child of the region:
-   - if the child is clb or mlb-pilot try to validate it and mark it
+   - if the child is clb or mlb-pilot try to validate it and mark it (DONE)
    - if the immediate child of the region is another nested grid, (either just mark it)(or recursive parse) (DONE)
-   - if it's not, mark it as a sub-blob
+   - if it's not, mark it as a sub-blob (DONE)
  - report on what the grid's parent is (DONE)
+ - Add UL (list) handling
+ - Ignore formatting nodes, such as STRONG
