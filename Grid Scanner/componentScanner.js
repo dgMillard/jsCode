@@ -23,7 +23,7 @@ window.componentValidator.validate = function(component, jsonrules, results){
 			{
 				if (typeof rules.ruleSet[r].criteriaList[i] === 'function') // First, check if its a function
 				{
-					boolCriteria[i] = tempCriteria[i](component); // If it is, pass the function the DOM object 'target' and set our completion tracker to the returned value 
+					boolCriteria[i] = rules.ruleSet[r].criteriaList[i](component); // If it is, pass the function the DOM object 'target' and set our completion tracker to the returned value 
 				}
 				else if (typeof rules.ruleSet[r].criteriaList[i] == 'string' || rules.ruleSet[r].criteriaList[i] instanceof String) // If it isn't a function, it should be a selector string
 				{
