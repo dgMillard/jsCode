@@ -19,6 +19,7 @@ else{
 }
 
 function cleanBorders() { 
-	jQuery("[id=CQ]").cq-editrollover-insert-container.display= 'none';
+//	jQuery("[id=CQ]").cq-editrollover-insert-container.display= 'none';
+	CQ.cq-editrollover-insert-container{display: none;);
 
 }
