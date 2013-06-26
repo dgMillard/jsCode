@@ -18,8 +18,10 @@ else{
 	cleanBorders();
 }
 
-function cleanBorders() { 
+
+function cleanBorders() {
 //	jQuery("[id=CQ]").cq-editrollover-insert-container.display= 'none';
 	CQ.cq-editrollover-insert-container("display: none");
-
 }
+
+}();
