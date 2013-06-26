@@ -6,14 +6,26 @@
 	//alert(cssElement.style.cqEditrolloverHighlightBackgroundColor);
 	//alert(csselement.style(['cq-editrollover-insert-container-display']));
 	var classes;
-
+	var useCssRules = true;
+	if(document.styleSheets[i].rules)
+		useCssRules = false;
+	
 	for(var i=0; i < document.styleSheets.length; i++)
 	{
-		for(var j=0; j < document.styleSheets[i].rules.length || document.styleSheets[i].cssRules.length; j++)
+		if(useCssRules)
 		{
-			classes.push(document.styleSheets[i].rules[j] || document.styleSheets[i].cssRules[j]);
+			for(var j=0; j < document.styleSheets[i].cssRules.length; j++)
+			{
+				classes.push(document.styleSheets[i].cssRules[j]);
+			}
 		}
-		
+		else
+		{
+			for(var j=0; j < document.styleSheets[i].rules.length; j++)
+			{
+				classes.push(document.styleSheets[i].rules[j]);
+			}
+		}
 	}
   	for(var x=0;x<classes.length;x++) {
   		alert(classes[x].cssText);
