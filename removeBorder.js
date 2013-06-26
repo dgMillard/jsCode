@@ -5,7 +5,7 @@
 	//cssElement.style.display = 'none';
 	//alert(cssElement.style.cqEditrolloverHighlightBackgroundColor);
 	//alert(csselement.style(['cq-editrollover-insert-container-display']));
-	var classes;
+	var classes = new Array();
 	var useCssRules = true;
 	//if(document.styleSheets[i].rules)
 		//useCssRules = false;
