@@ -27,8 +27,8 @@
 			}
 		}
 	}
-  	for(var x=0;x<classes.length;x++) {
-  		//alert(classes[x].cssText);
+  	for(var x=0; x < classes.length; x++) {
+  		alert(classes[x].cssText);
   	}
-  	alert(classes.length);
+
 })();
