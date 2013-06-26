@@ -21,7 +21,8 @@ else{
 
 function cleanBorders() {
 //	jQuery("[id=CQ]").cq-editrollover-insert-container.display= 'none';
-	CQ.editrollover.insert.container("display: none");
+	//CQ.style(cq-editrollover.insert.container("display: none");
+	alert(CQ.style(['cq-editrollover-insert-container-display']));
 }
 
 })();
