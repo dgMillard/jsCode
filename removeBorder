@@ -1,5 +1,0 @@
-(function(){
-	jQuery("[id=CQ]") .cq-editrollover-insert-container {
-		display: none;
-	}	
-})();
