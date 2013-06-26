@@ -1,0 +1,5 @@
+(function(){
+#CQ .cq-editrollover-insert-container {
+    display: none;
+}
+})();
