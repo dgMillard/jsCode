@@ -7,8 +7,8 @@
 	//alert(csselement.style(['cq-editrollover-insert-container-display']));
 	var classes;
 	var useCssRules = true;
-	if(document.styleSheets[i].rules)
-		useCssRules = false;
+	//if(document.styleSheets[i].rules)
+		//useCssRules = false;
 	
 	for(var i=0; i < document.styleSheets.length; i++)
 	{
