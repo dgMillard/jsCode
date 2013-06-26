@@ -27,8 +27,13 @@
 			}
 		}
 	}
+	var results = new Array();
   	for(var x=0; x < classes.length; x++) {
-  		alert(classes[x].cssText);
-  	}
+  		if(classes[x].cssText.lastIndexOf("#CQ .cq-editrollover-highlight", 0) === 0)
+  		{
+  			results.push(classes[x]);
+  			alert(classes[x].cssText);	
+  		}
+  	}	
 
 })();
