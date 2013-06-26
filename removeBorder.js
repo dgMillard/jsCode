@@ -24,4 +24,4 @@ function cleanBorders() {
 	CQ.cq-editrollover-insert-container("display: none");
 }
 
-}();
+})();
