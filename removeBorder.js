@@ -23,7 +23,8 @@
 		(window.myBookmarklet = function() {
 			//$('.cq-editrollover-highlight-left').css('display', 'none !important');
 			//jQuery('.cq-editrollover-highlight-left').css({'display':'none !important'});
-			jQuery(".cq").each(function() 
+			//if($('#someElement').hasClass('test'))
+			jQuery("#CQ").each(function() 
 			{
 				alert("Target Found");
 				$(this).css('display', 'none !important');
