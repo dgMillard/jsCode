@@ -31,7 +31,7 @@ else{
   loadedJ();
 }
 
-function loadedJ(url)
+function loadedJ()
 {
   $('.cq-editrollover-highlight-left').css('display', 'none !important');
 }
