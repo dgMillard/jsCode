@@ -21,15 +21,18 @@ var script = document.createElement("script");
 script.src = "http://ajax.googleapis.com/ajax/libs/jquery/" + v + "/jquery.min.js";
 script.onload = script.onreadystatechange = function(){
 if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) {
-done = true;
-$('.cq-editrollover-highlight-left').css('display', 'none !important');
-}
+  done = true;
+  loadedJ();
+  }
 };
 document.getElementsByTagName("head")[0].appendChild(script);
 }
 else{
-$('.cq-editrollover-highlight-left').css('display', 'none !important');
+  loadedJ();
 }
 
-
+function loadedJ(url)
+{
+  $('.cq-editrollover-highlight-left').css('display', 'none !important');
+}
 })();
