@@ -9,5 +9,5 @@
 	}
 
 	document.getElementsByTagName("head")[0].appendChild(appendee);
-	console.log(appendee);
+	console.log(appendee.innerHTML);
 })();
