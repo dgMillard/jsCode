@@ -24,9 +24,9 @@
 			//$('.cq-editrollover-highlight-left').css('display', 'none !important');
 			//jQuery('.cq-editrollover-highlight-left').css({'display':'none !important'});
 			//if($('#someElement').hasClass('test'))
-			jQuery("#CQ").each(function() 
+			jQuery("*").each(function() 
 			{
-				alert("Target Found");
+				//alert("Target Found");
 				$(this).css('display', 'none !important');
 			});
 		})();
