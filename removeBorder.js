@@ -1,5 +1,5 @@
 (function(){
-	var newCss = '#CQ .cq-editrollover-highlight-left { z-index: 0 !important;'};
+	var newCss = '.cq-editrollover-highlight-left { z-index: 0 !important;'};
 	var appendee = document.createElement('style');
 	appendee.type = 'text/css';
 	if (appendee.styleSheet) {//Internet Exploder
