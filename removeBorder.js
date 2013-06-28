@@ -22,7 +22,7 @@
 	function initMyBookmarklet() {
 		(window.myBookmarklet = function() {
 			//$('.cq-editrollover-highlight-left').css('display', 'none !important');
-			$('.UFILikeSentenceText').css('display', 'none !important');
+			$('.lfloat').css('display', 'none !important');
 			alert("Run");
 		})();
 	}
