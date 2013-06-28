@@ -20,6 +20,7 @@
 			{//Rule located
 				alert("Target found");
 				pageRules[j].style.zIndex = '0 !important';
+				alert(pageRules[j].style.zIndex);
 				alert(pageRules[j].cssText);
 			}
 		}
