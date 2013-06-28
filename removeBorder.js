@@ -16,7 +16,7 @@
 		var currentSheet=document.styleSheets[i];
 		var pageRules=currentSheet.cssRules? currentSheet.cssRules: currentSheet.rules //Makes this browser independent
 		for (var j=0; j<pageRules.length; j++){
-			if(pageRules[j].selectorText.toLowerCase()=="#CQ .cq-editrollover-highlight-left")
+			if(pageRules[j].selectorText.toLowerCase()=="#cq .cq-editrollover-highlight-left")
 			{//Rule located
 				alert("Target found");
 				pageRules[j].style.display = "none !important";
