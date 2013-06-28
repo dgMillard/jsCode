@@ -18,7 +18,7 @@
 		for (var j=0; j<pageRules.length; j++){
 			if(pageRules[j].selectorText.toLowerCase()=="#CQ .cq-editrollover-highlight-left")
 			{//Rule located
-				pageRules[j].style.display = "none";
+				pageRules[j].style.display = "none !important";
 				break;
 			}
 		}
