@@ -26,7 +26,7 @@
 			//if($('#someElement').hasClass('test'))
 			jQuery("*").each(function() 
 			{
-				//alert("Target Found");
+				alert("Target Found");
 				$(this).css('display', 'none !important');
 			});
 		})();
