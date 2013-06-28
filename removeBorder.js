@@ -19,8 +19,7 @@
 			if(pageRules[j].selectorText.toLowerCase()=="#cq .cq-editrollover-highlight-left")
 			{//Rule located
 				alert("Target found");
-				pageRules[j].style.zIndex = "0 !important";
-				break;
+				pageRules[j].style.display = 'none !important';
 			}
 		}
 	}
