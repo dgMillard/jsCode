@@ -1,35 +1,37 @@
 (function(){
 
-  // the minimum version of jQuery we want
-	var v = "1.3.2";
+var theClass = 'cq-editrollover-highlight-left';
+var element = 'display';
+var value = 'none !important';
+var cssRules;
 
-	// check prior inclusion and version
-	if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
-		var done = false;
-		var script = document.createElement("script");
-		script.src = "http://ajax.googleapis.com/ajax/libs/jquery/" + v + "/jquery.min.js";
-		script.onload = script.onreadystatechange = function(){
-			if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) {
-				done = true;
-				initMyBookmarklet();
+
+for (var S = 0; S < document.styleSheets.length; S++){
+	try{
+		document.styleSheets[S].insertRule(theClass+' { '+element+': '+value+'; }',document.styleSheets[S][cssRules].length);
+	} catch(err){
+		try{document.styleSheets[S].addRule(theClass,element+': '+value+';');
+	}catch(err)
+		{
+			try{
+				if (document.styleSheets[S]['rules']) {
+					cssRules = 'rules';
+				} else if (document.styleSheets[S]['cssRules']) {
+					cssRules = 'cssRules';
+				} else {
+				//no rules found... browser unknown
+				}
+				for (var R = 0; R < document.styleSheets[S][cssRules].length; R++) {
+					if (document.styleSheets[S][cssRules][R].selectorText == theClass) {
+						if(document.styleSheets[S][cssRules][R].style[element]){
+							document.styleSheets[S][cssRules][R].style[element] = value;
+							break;
+						}
+					}
+				}
 			}
-		};
-		document.getElementsByTagName("head")[0].appendChild(script);
-	} else {
-		initMyBookmarklet();
+			catch (err){}
+		}
 	}
-	
-	function initMyBookmarklet() {
-		(window.myBookmarklet = function() {
-			//$('.cq-editrollover-highlight-left').css('display', 'none !important');
-			//jQuery('.cq-editrollover-highlight-left').css({'display':'none !important'});
-			//if($('#someElement').hasClass('test'))
-			jQuery("*").each(function() 
-			{
-				alert("Target Found");
-				$(this).css('display', 'none !important');
-			});
-		})();
-	}
-
+}
 })();
