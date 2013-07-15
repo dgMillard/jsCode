@@ -20,7 +20,7 @@ function ruleChanger(selector, rule, value) {
 				alert("Selector Found! Sheet: " + S + "    Rule: " + R + "    Selector: "+ document.styleSheets[S][cssRules][R].selectorText);
 				if(document.styleSheets[S][cssRules][R].style[rule]){
 					document.styleSheets[S][cssRules][R].style[rule] = value;
-					alert("Did it!");
+					alert(document.styleSheets[S][cssRules][R].cssText);
 					break;
 				}
 			}
