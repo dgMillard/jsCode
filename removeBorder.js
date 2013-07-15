@@ -1,7 +1,7 @@
 (function(){
 
-var theClass = '.cq-editrollover-highlight-left';
-//var theClass = '.cqEditrolloverHighlightLeft';
+//var theClass = '.cq-editrollover-highlight-left';
+var theClass = 'hopschotch';
 
 var element = 'display';
 var value = 'none !important';
@@ -16,7 +16,6 @@ for (var S = 0; S < document.styleSheets.length; S++){
 	} else {
 	//no rules found... browser unknown
 	}
-	alert(cssRules);
 	for (var R = 0; R < document.styleSheets[S][cssRules].length; R++) {
 		if (document.styleSheets[S][cssRules][R].selectorText == theClass) {
 			alert("Selector Found!");
