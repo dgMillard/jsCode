@@ -1,9 +1,9 @@
 (function(){
 
-var theClass = '#CQ .cq-editrollover-highlight-left';
-
-var element = 'z-index';
-var value = '0';
+//var theClass = '#CQ .cq-editrollover-highlight-left';
+var theClass = '.exampleA';
+var element = 'color';
+var value = 'red';
 //var value = 'none !important';
 var cssRules;
 
