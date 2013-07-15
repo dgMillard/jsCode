@@ -1,6 +1,6 @@
 (function(){
 
-var theClass = 'cq-editrollover-highlight-left';
+var theClass = '#cq-editrollover-highlight-left';
 var element = 'display';
 var value = 'none !important';
 var cssRules;
