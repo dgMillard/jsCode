@@ -9,6 +9,7 @@ var cssRules;
 
 
 for (var S = 0; S < document.styleSheets.length; S++){
+	alert(S);
 	try{
 		document.styleSheets[S].insertRule(theClass+' { '+element+': '+value+'; }',document.styleSheets[S][cssRules].length);
 	} catch(err){
