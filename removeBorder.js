@@ -15,7 +15,7 @@ for (var S = 0; S < document.styleSheets.length; S++){
 		try{document.styleSheets[S].addRule(theClass,element+': '+value+';');
 	}catch(err)
 		{
-			alert("could not insert or add rule to page: " + s);
+			alert("could not insert or add rule to page: " + S);
 			try{
 				if (document.styleSheets[S]['rules']) {
 					cssRules = 'rules';
