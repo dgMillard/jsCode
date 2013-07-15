@@ -1,7 +1,7 @@
 (function(){
 
 //var theClass = '#cq-editrollover-highlight-left';
-var theClass = '#cqEditrolloverHighlightLeft';
+var theClass = '.cqEditrolloverHighlightLeft';
 
 var element = 'display';
 var value = 'none !important';
