@@ -2,7 +2,7 @@
 
 var theClass = '#CQ .cq-editrollover-highlight-left';
 
-var element = 'opacity';
+var element = 'z-index';
 var value = '0';
 //var value = 'none !important';
 var cssRules;
