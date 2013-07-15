@@ -26,7 +26,7 @@ function ruleChanger(selector, rule, value) {
 			}
 		}
 	}
-};
+}
 	
 
 alert("script run...");
