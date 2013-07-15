@@ -9,13 +9,13 @@ var cssRules;
 
 
 for (var S = 0; S < document.styleSheets.length; S++){
-	alert(S);
 	try{
 		document.styleSheets[S].insertRule(theClass+' { '+element+': '+value+'; }',document.styleSheets[S][cssRules].length);
 	} catch(err){
 		try{document.styleSheets[S].addRule(theClass,element+': '+value+';');
 	}catch(err)
 		{
+			alert("could not insert or add rule to page: " + s);
 			try{
 				if (document.styleSheets[S]['rules']) {
 					cssRules = 'rules';
