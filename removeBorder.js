@@ -25,6 +25,7 @@ for (var S = 0; S < document.styleSheets.length; S++){
 					if (document.styleSheets[S][cssRules][R].selectorText == theClass) {
 						if(document.styleSheets[S][cssRules][R].style[element]){
 							document.styleSheets[S][cssRules][R].style[element] = value;
+							alert("Did it!");
 							break;
 						}
 					}
@@ -34,4 +35,5 @@ for (var S = 0; S < document.styleSheets.length; S++){
 		}
 	}
 }
+alert("script run...");
 })();
