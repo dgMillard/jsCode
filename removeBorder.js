@@ -26,8 +26,7 @@ else
 {
   
   var newLoc = document.URL.replace(/cf#\//,"");
-  alert(newLoc);
-  //window.open(newLoc,"_self");
+  window.open(newLoc,"_self");
 }
 
 
