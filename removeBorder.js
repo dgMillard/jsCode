@@ -2,7 +2,7 @@
 
 if(document.URL.search("cf#") == -1)
 {
-  var formHTML = '<p>CQ CleanOTron 1500</p><table> <tr> <td><button onclick="window.componentClear(0)">Run</button> </td> <td>Clear Mouseover Borders</td> </tr> <tr> <td><button onclick="window.componentClear(1)">Run</button> </td> <td>Clear Drop Targets</td> </tr></table>';
+  var formHTML = '<p><p>CQ CleanOTron 1500</p><table> <tr> <td><button onclick="window.componentClear(0)">Run</button> </td> <td>Clear Mouseover Borders</td> </tr> <tr> <td><button onclick="window.componentClear(1)">Run</button> </td> <td>Clear Drop Targets</td> </tr> <tr> <td><button onclick="window.componentClear(2)">Run</button> </td> <td>Re-add Component View</td> </tr></table>';
   jQuery('body').append(formHTML);
   
   
