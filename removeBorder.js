@@ -1,6 +1,6 @@
 (function(){
 
-$('body').prepend('<p>CQ CleanOTron 1500</p><table> <tr> <td><button onclick="window.componentClear(1)">Run</button> </td> <td>Clear Left Borders</td> </tr> <tr> <td><button onclick="window.componentClear(2)">Run</button> </td> <td>Clear Right Borders</td> </tr> <tr> <td><button onclick="window.componentClear(3)">Run</button> </td> <td>Clear Top Borders</td> </tr> <tr> <td><button onclick="window.componentClear(4)">Run</button> </td> <td>Clear Bottom Borders</td> </tr></table>');
+jQuery('body').prepend('<p>CQ CleanOTron 1500</p><table> <tr> <td><button onclick="window.componentClear(1)">Run</button> </td> <td>Clear Left Borders</td> </tr> <tr> <td><button onclick="window.componentClear(2)">Run</button> </td> <td>Clear Right Borders</td> </tr> <tr> <td><button onclick="window.componentClear(3)">Run</button> </td> <td>Clear Top Borders</td> </tr> <tr> <td><button onclick="window.componentClear(4)">Run</button> </td> <td>Clear Bottom Borders</td> </tr></table>');
 
 
 window.componentClear = var functionOne = function(section) {
