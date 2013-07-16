@@ -6,17 +6,13 @@ jQuery('body').append('<p>CQ CleanOTron 1500</p><table> <tr> <td><button onclick
 window.componentClear = function(section) {
   switch(section)
   {
-  case 1:
+  case 0:
     jQuery('.cq-editrollover-highlight-left').remove();
-    break;
-  case 2:
     jQuery('.cq-editrollover-highlight-right').remove();
-    break;
-  case 3:
     jQuery('.cq-editrollover-highlight-top').remove();
-    break;
-  case 4:
     jQuery('.cq-editrollover-highlight-bottom').remove();
+    break;
+  case 1:
     break;
   }
 };
