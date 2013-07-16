@@ -24,7 +24,8 @@ if(document.URL.search("cf#") != -1)
 }
 else
 {
-  window.open("www.youtube.com","_self");
+  alert("Yarrr");
+  location.href = "http://example.com";
 }
 
 
