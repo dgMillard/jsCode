@@ -20,8 +20,10 @@ if(document.URL.search("cf#") == -1)
       break;
     case 2: //Re-add cf#
       if(document.URL.substring(0, 22) == "http://localhost:4502/")
+      {
         //window.open(document.URL.substring(0, 15) + "cf#/" + document.URL.substring(20, 15),"_self");
-        alert(document.URL.substring(0, 22) + "cf#/" + document.URL.substring(26));
+        alert(document.URL.substring(0, 22) + "cf#" + document.URL.substring(21));
+      }
       break;
     }
   };
