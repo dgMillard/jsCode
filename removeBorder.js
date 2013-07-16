@@ -16,6 +16,7 @@ window.componentClear = function(section) {
   case 1:
     jQuery('.cq-editrollover-insert-container').remove();
     break;
+
   }
 };
 
