@@ -24,8 +24,10 @@ if(document.URL.search("cf#") == -1)
 }
 else
 {
+  
   var newLoc = document.URL.replace(/cf#\//,"");
-  window.open("newLoc","_self");
+  alert(newLoc);
+  //window.open(newLoc,"_self");
 }
 
 
