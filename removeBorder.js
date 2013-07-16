@@ -14,6 +14,7 @@ window.componentClear = function(section) {
     jQuery('.cq-editrollover-highlight-bottom').remove();
     break;
   case 1:
+    jQuery('.cq-editrollover-insert-container').remove();
     break;
   }
 };
