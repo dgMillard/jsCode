@@ -21,7 +21,7 @@ if(document.URL.search("cf#") == -1)
     case 2: //Re-add cf#
       if(document.URL.substring(0, 22) == "http://localhost:4502/")
       {
-        window.open(document.URL.substring(0, 22) + "cf#" + document.URL.substring(21);
+        window.open(document.URL.substring(0, 22) + "cf#" + document.URL.substring(21));
 
       }
       break;
