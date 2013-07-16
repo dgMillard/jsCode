@@ -26,7 +26,7 @@ if(document.URL.search("cf#") == -1)
 else
 {
   alert("Yarrr");
-  location.href = "http://youtube.com";
+  window.open("www.youtube.com","_self");
 }
 
 
