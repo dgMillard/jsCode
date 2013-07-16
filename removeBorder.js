@@ -1,6 +1,7 @@
 (function(){
 
-jQuery('body').append('<p>CQ CleanOTron 1500</p><table> <tr> <td><button onclick="window.componentClear(1)">Run</button> </td> <td>Clear Left Borders</td> </tr> <tr> <td><button onclick="window.componentClear(2)">Run</button> </td> <td>Clear Right Borders</td> </tr> <tr> <td><button onclick="window.componentClear(3)">Run</button> </td> <td>Clear Top Borders</td> </tr> <tr> <td><button onclick="window.componentClear(4)">Run</button> </td> <td>Clear Bottom Borders</td> </tr></table>');
+var formHTML = '<p>CQ CleanOTron 1500</p><table> <tr> <td><button onclick="window.componentClear(0)">Run</button> </td> <td>Clear Mouseover Borders</td> </tr> <tr> <td><button onclick="window.componentClear(1)">Run</button> </td> <td>Clear Drop Targets</td> </tr></table>';
+jQuery('body').append(formHTML);
 
 
 window.componentClear = function(section) {
