@@ -9,16 +9,20 @@ if(document.URL.search("cf#") == -1)
   window.componentClear = function(section) {
     switch(section)
     {
-    case 0:
+    case 0: //Remove Hightlight Borders
       jQuery('.cq-editrollover-highlight-left').remove();
       jQuery('.cq-editrollover-highlight-right').remove();
       jQuery('.cq-editrollover-highlight-top').remove();
       jQuery('.cq-editrollover-highlight-bottom').remove();
       break;
-    case 1:
+    case 1: //Remove Drop Targets
       jQuery('.cq-editrollover-insert-container').remove();
       break;
-  
+    case 2: //Re-add cf#
+      if(document.URL.substring(0, 15) == "localhost:4502/")
+        //window.open(document.URL.substring(0, 15) + "cf#/" + document.URL.substring(20, 15),"_self");
+        alert(document.URL.substring(0, 15) + "cf#/" + document.URL.substring(20, 15));
+      break;
     }
   };
 }
