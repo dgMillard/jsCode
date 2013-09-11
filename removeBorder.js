@@ -2,7 +2,7 @@
 //javascript:(function(){var%20s%20=%20document.createElement('script');s.src%20=%20'https://raw.github.com/dgMillard/jsCode/master/removeBorder.js';document.body.appendChild(s);})();
 if(document.URL.search("cf#") == -1)
 {
-  var formHTML = '<p><p>CQ CleanOTron 1500</p><table> <tr> <td><button onclick="window.componentClear(0)">Run</button> </td> <td>Clear Mouseover Borders</td> </tr> <tr> <td><button onclick="window.componentClear(1)">Run</button> </td> <td>Clear Drop Targets</td> </tr> <tr> <td><button onclick="window.componentClear(2)">Run</button> </td> <td>Re-add Component View</td> </tr></table>';
+  var formHTML = '<p><p>CQ CleanOTron 1500</p><table> <tr> <td><button onclick="window.componentClear(0)">Run</button> </td> <td>Clear Mouseover Borders</td> </tr> <tr> <td><button onclick="window.componentClear(1)">Run</button> </td> <td>Clear Drop Targets</td> </tr> <tr> <td><button onclick="window.componentClear(2)">Run</button> </td> <td>Re-add Component View</td><td> <button onclick="alert(document.URL)">Run</button></td> </tr></table>';
   jQuery('body').append(formHTML);
   
   
