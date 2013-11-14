@@ -1,4 +1,3 @@
-componentValidator.run(
 {
    "ruleSet":[
       {
@@ -45,4 +44,4 @@ componentValidator.run(
       }
    ]
 }
-);
+
